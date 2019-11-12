@@ -1,0 +1,7 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [true, "attribute", "bmWorldRegions", "camelCase"],
+    "component-selector": [true, "element", "bm-world-regions", "kebab-case"]
+  }
+}

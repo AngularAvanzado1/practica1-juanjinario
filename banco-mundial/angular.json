@@ -1,7 +1,137 @@
 {
   "version": 1,
-  "projects": {},
+  "projects": {
+    "world-regions": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/world-regions",
+      "sourceRoot": "apps/world-regions/src",
+      "prefix": "bm-world-regions",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/world-regions",
+            "index": "apps/world-regions/src/index.html",
+            "main": "apps/world-regions/src/main.ts",
+            "polyfills": "apps/world-regions/src/polyfills.ts",
+            "tsConfig": "apps/world-regions/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/world-regions/src/favicon.ico",
+              "apps/world-regions/src/assets"
+            ],
+            "styles": ["apps/world-regions/src/styles.css"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/world-regions/src/environments/environment.ts",
+                  "with": "apps/world-regions/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "world-regions:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "world-regions:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "world-regions:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/world-regions/tsconfig.app.json",
+              "apps/world-regions/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/world-regions/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/world-regions/jest.config.js",
+            "tsConfig": "apps/world-regions/tsconfig.spec.json",
+            "setupFile": "apps/world-regions/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "world-regions-e2e": {
+      "root": "apps/world-regions-e2e",
+      "sourceRoot": "apps/world-regions-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/world-regions-e2e/cypress.json",
+            "tsConfig": "apps/world-regions-e2e/tsconfig.e2e.json",
+            "devServerTarget": "world-regions:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "world-regions:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/world-regions-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/world-regions-e2e/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
-    "defaultCollection": "@nrwl/workspace"
-  }
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "world-regions"
 }

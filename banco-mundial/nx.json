@@ -7,5 +7,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "world-regions-e2e": {
+      "tags": []
+    },
+    "world-regions": {
+      "tags": []
+    }
+  }
 }

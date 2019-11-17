@@ -10,6 +10,7 @@
     "test:world": "ng test world-regions",
     "lint": "nx workspace-lint && ng lint",
     "e2e": "ng e2e",
+    "e2e:world": "ng e2e world-regions-e2e --watch",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
     "affected:build": "nx affected:build",

@@ -19,7 +19,8 @@
             "aot": false,
             "assets": [
               "apps/world-regions/src/favicon.ico",
-              "apps/world-regions/src/assets"
+              "apps/world-regions/src/assets",
+              "apps/world-regions/src/manifest.webmanifest"
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
@@ -55,7 +56,9 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "apps/world-regions/ngsw-config.json"
             }
           }
         },

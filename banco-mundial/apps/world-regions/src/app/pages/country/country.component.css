@@ -1,0 +1,21 @@
+.main-container {
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 20px;
+  width: 100%;
+}
+
+.main-container a{
+  text-decoration: none;
+}
+
+.main-container h2{
+  margin: -10px 0 1.2em;
+}
+
+.data-container {
+  box-shadow: 0 3px 9px 3px rgba(32,33,36,.1);
+  border-radius: 20px;
+  line-height: 1.5em;
+  padding: 20px 40px;
+}

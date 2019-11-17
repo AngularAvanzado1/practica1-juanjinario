@@ -1,0 +1,7 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!(regions$ | async)"></mat-progress-bar>
+
+<div class="main-container">
+    <div *ngFor="let region of regions$ | async ; let i=index">
+      <bm-ui-region-card [region]="region" (onClickRegion)="goToRegion($event)"></bm-ui-region-card>
+    </div>
+</div>

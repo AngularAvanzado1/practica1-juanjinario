@@ -1,0 +1,12 @@
+<div class="main-container">
+  <div *ngIf="region$ | async as region">
+    <h1 class="title">{{region.name}}
+      <small> {{region.code}} </small></h1>
+  </div>
+  <div class="items-wrapper">
+      <div *ngFor="let countrys of countries$ | async ; let i=index">
+        <bm-ui-country-card [country]="countrys" (onClickCountry)="goToCountry($event)"></bm-ui-country-card>
+      </div>
+  </div>
+</div>
+

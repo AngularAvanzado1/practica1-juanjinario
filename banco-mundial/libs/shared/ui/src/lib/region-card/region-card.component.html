@@ -1,0 +1,14 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ region.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+          Código: {{ region.code }}<br/>
+          iso2code: {{ region.iso2code }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="goToRegion(region.code)" color="primary">Conoce mas</button>
+    </mat-card-actions>
+</mat-card>

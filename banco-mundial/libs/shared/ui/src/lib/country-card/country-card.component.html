@@ -1,0 +1,16 @@
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ country.name }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+          Ingresos económicos: {{ country.incomeLevel?.value }} <br/>
+          Código: {{ country.id }}<br/>
+          iso2code: {{ country.iso2Code }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="goToCountry(country.id)" color="primary">Conoce mas</button>
+    </mat-card-actions>
+</mat-card>
+

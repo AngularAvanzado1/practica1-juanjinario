@@ -1,0 +1,14 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!(country$ | async)"></mat-progress-bar>
+
+<div class="main-container">
+  <div *ngIf="country$ | async as country">
+    <h1>{{country.name}}</h1>
+    <a [routerLink]="['/region', country.region.id]"><h2> {{ country.region?.value }} </h2></a>
+  </div>
+
+  <section class="data-container" *ngIf="country$ | async as country">
+    <p title="Capital">Capital: {{ country.capitalCity }}</p>
+    <p *ngIf="country.incomeLevel">Nivel económico: {{ country.incomeLevel.value }}</p>
+    <p *ngIf="country.lendingType">Tipo de crédito {{ country.lendingType.value }}</p>
+  </section>
+</div>
